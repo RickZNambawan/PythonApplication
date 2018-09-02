@@ -10,6 +10,8 @@ import tkinter.messagebox
 
 conn = sqlite3.connect("bankDB.sqlite")
 c = conn.cursor()
+
+# uncomment lines below to delete existing database file and to create new database file
 # c.execute("DROP TABLE IF EXISTS Bank")
 # c.execute("CREATE TABLE Bank (name TEXT, money INTEGER)")
 

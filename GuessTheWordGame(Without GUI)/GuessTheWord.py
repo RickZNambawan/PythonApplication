@@ -21,7 +21,7 @@ class GuessTheWord:
 
     def creating_hints(self):
         alphabet = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
-        for counter in range(4, 7):  # generates 4 to 7 random alphabet and add to the hint_letters list
+        for counter in range(1, 10):  # generates 10 random alphabet and add to the hint_letters list
             random_letters = random.choice(alphabet.split())
             self.hint_letters.append(random_letters)
 
@@ -49,7 +49,15 @@ class GuessTheWord:
             else:
                 user_input = input("\nEnter your guess: ")
                 letter = user_input.upper()
-                if letter in self.blanks:
+                if letter.isnumeric():
+                    print("Numerical character is not allowed.")
+                    print("Try again.")
+                    print("Your guess word is: {}".format(" ".join(self.blanks)))
+                elif len(letter) >= 2:
+                    print("You can only enter one character.")
+                    print("Try again.")
+                    print("Your guess word is: {}".format(" ".join(self.blanks)))
+                elif letter in self.blanks:
                     print("Letter '{}' is already available.".format(letter))
                     print("Your guess word is: {}".format(" ".join(self.blanks)))
                 elif letter in self.chosen_word:  # if the user inputs the correct letter then replace the blanks with it

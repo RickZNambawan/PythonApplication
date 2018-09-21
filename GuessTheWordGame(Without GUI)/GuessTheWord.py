@@ -44,7 +44,7 @@ class GuessTheWord:
         while self.chosen_word != self.guess_word:
             if self.tries == 0:
                 print("\nSorry you're out of lives!")
-                print(self.chosen_word)
+                print("The word is: {}".format(self.chosen_word))
                 exit()
             else:
                 user_input = input("\nEnter your guess: ")
@@ -73,5 +73,6 @@ class GuessTheWord:
         print("You've guessed it right!!")
 
 
-main = GuessTheWord()
+if __name__ == '__main__':
+    main = GuessTheWord()
 
